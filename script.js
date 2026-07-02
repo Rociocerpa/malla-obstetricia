@@ -123,17 +123,12 @@ const prerequisitos = {
   'clinica_mq': ['gineco_pat', 'enfermeria_mq'],
   'modulo2': ['modulo1'],
   'seminario1': ['investigacion3'],
-  'internado_neonatologia': ['clinica_neonatal2'],
-  'internado_obstetricia': ['clinica_partos2', 'alto_riesgo'],
-  'internado_ap': ['clinica_ap2'],
-  'internado_gineco': ['clinica_mq'],
-  'internado_neonatologia1': ['clinica_neonatal2'],
-  'internado_obstetricia1': ['clinica_partos2', 'alto_riesgo'],
-  'internado_ap1': ['clinica_ap2'],
-  'internado_gineco1': ['clinica_mq'],
-  'internado_electivo': [],
-  'internado_electivo1': [],
-  'seminario2': ['seminario1'],
+'seminario2': ['seminario1'],
+'internado_neonatologia': ['clinica_neonatal2'],
+'internado_obstetricia': ['clinica_partos2', 'alto_riesgo'],
+'internado_ap': ['clinica_ap2'],
+'internado_gineco': ['clinica_mq'],
+'internado_electivo': [],
   'ingles4': ['ingles3']
 };
 
