@@ -210,6 +210,13 @@ window.addEventListener('DOMContentLoaded', () => {
     if (aprobados.includes(ramo.id)) {
       ramo.classList.add('aprobado');
     }
+    const botonCerrarMensaje = document.getElementById('cerrarMensajeFinal');
+if (botonCerrarMensaje) {
+  botonCerrarMensaje.addEventListener('click', () => {
+    const mensaje = document.getElementById('mensajeFinal');
+    if (mensaje) mensaje.classList.remove('activo');
+  });
+}
   });
 
   todosRamos.forEach(ramo => {
@@ -234,4 +241,33 @@ function actualizarProgreso() {
 
   if (barra) barra.style.width = porcentaje + '%';
   if (texto) texto.textContent = porcentaje + '%';
+}
+let celebracionMostrada = false;
+
+function lanzarConfeti() {
+  const colores = ['#f8bbd0', '#ec407a', '#c2185b', '#d1bee7', '#b695d3', '#fff0f5'];
+
+  for (let i = 0; i < 90; i++) {
+    const confeti = document.createElement('div');
+    confeti.className = 'confeti';
+    confeti.style.left = Math.random() * 100 + 'vw';
+    confeti.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+    confeti.style.animationDelay = Math.random() * 0.7 + 's';
+    confeti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+    document.body.appendChild(confeti);
+
+    setTimeout(() => {
+      confeti.remove();
+    }, 3500);
+  }
+}
+
+function mostrarMensajeFinal() {
+  const mensaje = document.getElementById('mensajeFinal');
+  if (mensaje) {
+    mensaje.classList.add('activo');
+  }
+
+  lanzarConfeti();
 }
