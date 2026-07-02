@@ -134,8 +134,13 @@ const prerequisitos = {
 
 // Funciones para guardar y cargar progreso en localStorage
 function obtenerAprobados() {
-  const data = localStorage.getItem('mallaAprobados');
-  return data ? JSON.parse(data) : [];
+  try {
+    const data = localStorage.getItem('mallaAprobados');
+    const aprobados = data ? JSON.parse(data) : [];
+    return Array.isArray(aprobados) ? aprobados : [];
+  } catch {
+    return [];
+  }
 }
 
 function guardarAprobados(aprobados) {
