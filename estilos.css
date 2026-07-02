@@ -160,3 +160,94 @@ h1 {
   border-radius: 999px;
   transition: width 0.35s ease;
 }
+.mensaje-final {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(255, 240, 245, 0.78);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+.mensaje-final.activo {
+  display: flex;
+}
+
+.mensaje-final-contenido {
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  background: #ffe4ec;
+  border: 2px solid #f48fb1;
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 6px 6px 14px #d98ba8, -6px -6px 14px #fff7fb;
+  animation: aparecerMensaje 0.35s ease;
+}
+
+.mensaje-final-contenido h2 {
+  margin: 0 0 10px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #c2185b;
+  font-size: 2rem;
+}
+
+.mensaje-final-contenido p {
+  margin: 0 0 20px;
+  color: #880e4f;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.mensaje-final-contenido button {
+  border: 1px solid #c2185b;
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: linear-gradient(145deg, #f8bbd0, #ec407a);
+  color: #5c0040;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 3px 3px 7px #c28aa2, -3px -3px 7px #ffcee1;
+}
+
+.mensaje-final-contenido button:hover {
+  background: linear-gradient(145deg, #f48fb1, #e91e63);
+}
+
+.confeti {
+  position: fixed;
+  top: -12px;
+  width: 10px;
+  height: 16px;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 1000;
+  animation: caerConfeti 2.8s linear forwards;
+}
+
+@keyframes caerConfeti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes aparecerMensaje {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
