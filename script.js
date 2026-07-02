@@ -198,6 +198,7 @@ function aprobar(e) {
 
   guardarAprobados(aprobados);
   actualizarDesbloqueos();
+  actualizarProgreso();
 }
 
 // Al cargar la página, asignar eventos, cargar progreso y actualizar desbloqueos
@@ -218,4 +219,19 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
   actualizarDesbloqueos();
+  actualizarProgreso();
 });
+function actualizarProgreso() {
+  const todosRamos = document.querySelectorAll('.ramo');
+  const ramosAprobados = document.querySelectorAll('.ramo.aprobado');
+
+  const total = todosRamos.length;
+  const aprobados = ramosAprobados.length;
+  const porcentaje = total > 0 ? Math.round((aprobados / total) * 100) : 0;
+
+  const barra = document.getElementById('barraProgreso');
+  const texto = document.getElementById('progresoTexto');
+
+  if (barra) barra.style.width = porcentaje + '%';
+  if (texto) texto.textContent = porcentaje + '%';
+}
