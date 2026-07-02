@@ -188,8 +188,8 @@ function actualizarDesbloqueos() {
 
 // Maneja el clic para aprobar o desaprobar un ramo (solo si no está bloqueado)
 function aprobar(e) {
-  const ramo = e.currentTarget;
-  if (ramo.classList.contains('bloqueado')) return;
+  const ramo = typeof e === 'string' ? document.getElementById(e) : e.currentTarget;
+  if (!ramo || ramo.classList.contains('bloqueado')) return;
 
   ramo.classList.toggle('aprobado');
 
@@ -200,8 +200,8 @@ function aprobar(e) {
     const idx = aprobados.indexOf(ramo.id);
     if (idx > -1) aprobados.splice(idx, 1);
   }
-  guardarAprobados(aprobados);
 
+  guardarAprobados(aprobados);
   actualizarDesbloqueos();
 }
 
@@ -217,8 +217,10 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   todosRamos.forEach(ramo => {
+  if (!ramo.hasAttribute('onclick')) {
     ramo.addEventListener('click', aprobar);
-  });
+  }
+});
 
   actualizarDesbloqueos();
 });
