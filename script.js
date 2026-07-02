@@ -230,15 +230,8 @@ window.addEventListener('DOMContentLoaded', () => {
   actualizarProgreso();
 });
 
-  todosRamos.forEach(ramo => {
-  if (!ramo.hasAttribute('onclick')) {
-    ramo.addEventListener('click', aprobar);
-  }
-});
+let celebracionMostrada = false;
 
-  actualizarDesbloqueos();
-  actualizarProgreso();
-});
 function actualizarProgreso() {
   const todosRamos = document.querySelectorAll('.ramo');
   const ramosAprobados = document.querySelectorAll('.ramo.aprobado');
@@ -284,6 +277,7 @@ function lanzarConfeti() {
 
 function mostrarMensajeFinal() {
   const mensaje = document.getElementById('mensajeFinal');
+
   if (mensaje) {
     mensaje.classList.add('activo');
   }
